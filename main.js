@@ -18,8 +18,8 @@ $(document).ready(function() {
 
     } else {
 
-      activeImg.removeClass('active').next("img").addClass('active');
-      activeCircle.removeClass('active').next('i').addClass('active');
+      activeImg.removeClass('active').next().addClass('active');
+      activeCircle.removeClass('active').next().addClass('active');
 
     }
   })
@@ -40,8 +40,8 @@ $(document).ready(function() {
 
     } else {
 
-      activeImg.removeClass('active').prev('img').addClass('active');
-      activeCircle.removeClass('active').prev('i').addClass('active');
+      activeImg.removeClass('active').prev().addClass('active');
+      activeCircle.removeClass('active').prev().addClass('active');
 
     }
   })
