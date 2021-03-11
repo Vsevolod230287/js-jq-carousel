@@ -1,22 +1,51 @@
-// Per facilitarvi la vita usate immagini delle stesse dimensioni
- // :faccia_leggermente_sorridente: Lo slider prevederà due frecce (icone)
- // che permettono di scorrere tra le immagini dello slider In oltre per scorrere
- //  le immagini permettere anche l’uso delle frecce sinistra e destra della tastiera
- //  Utiliziamo una classe first e last per capire quali sono la prima
- //  e ultima immagine dello slider Utilizziamo una classe active per aiutarci
- //   a capire quale è l’immagine attuale da visualizzare nello slider
-// BONUS
-// Clicchiamo sui pallini e mostriamo l’immagine corrispondente Generiamo i pallini con JS
-$(document).ready(function () {
-  var btnLeft = $(".prev .fa-angle-left");
-  var btnRight = $(".next .fa-angle-right");
-  var img = $(".images img")
+$(document).ready(function() {
+  var prevBtn = $('.prev i.fa-angle-left');
+  var nextBtn = $('.next i.fa-angle-right');
 
-  btnRight.click(function () {
-    
-    img.removeClass("active").next().addClass("active");
+
+
+  nextBtn.click(function() {
+    var activeImg = $('.images img.active');
+    var activeCircle = $('.nav i.active');
+
+    if (activeImg.hasClass('last')) {
+
+      activeImg.removeClass('active');
+      $('.images img.first').addClass('active');
+
+      activeCircle.removeClass('active');
+      $('.nav i.first').addClass('active');
+
+    } else {
+
+      activeImg.removeClass('active').next("img").addClass('active');
+      activeCircle.removeClass('active').next('i').addClass('active');
+
+    }
   })
 
 
 
-});
+  prevBtn.click(function() {
+    var activeImg = $('.images img.active');
+    var activeCircle = $('.nav i.active');
+
+    if (activeImg.hasClass('first')) {
+
+      activeImg.removeClass('active');
+      $('.images img.last').addClass('active');
+
+      activeCircle.removeClass('active');
+      $('.nav i.last').addClass('active');
+
+    } else {
+
+      activeImg.removeClass('active').prev('img').addClass('active');
+      activeCircle.removeClass('active').prev('i').addClass('active');
+
+    }
+  })
+
+
+
+}) // document ready function chiusura
